@@ -4,7 +4,7 @@
 # SCRIPT DE DESPLIEGUE CONTINUO - ETL POSTGRES (DOCKER OPERATOR)
 # ==============================================================================
 
-# 1. Moverse al directorio del repositorio en el host
+# 1. Moverse al directorio del repositorio en el host1
 # (Nota: Asegúrate de que el nombre sea correcto, en tu captura se ve 'elt_postgres' pero usaremos 'etl_postgres' como en tu script)
 cd /docker/elt_postgres || exit
 
