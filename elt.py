@@ -5,7 +5,7 @@ import json
 from datetime import datetime
 from dotenv import load_dotenv
 
-# Cargar variables (.env debe estar montado en el contenedor o pasado por variables)
+# Cargar variables (.env debe estar montado en el contenedor o pasado por variables***)
 load_dotenv('.env')
 
 PROMETHEUS_URL = os.getenv('PROMETHEUS_URL', 'http://192.168.3.155:9090/api/v1/query')
