@@ -25,7 +25,8 @@ cp postgres_dag.py /docker/airflow/dags/
 # Ya no hacemos 'docker compose up'. Solo preparamos la imagen (la "receta") 
 # para que Airflow levante el contenedor cuando sea la hora.
 echo "[$(date)] Construyendo nueva imagen de Docker: elt_postgres_telemetry:latest..."
-docker build -t elt_postgres_telemetry:latest .
+
+DOCKER_BUILDKIT=1 docker build -t elt_postgres_telemetry:latest .
 
 # 6. Mantenimiento del servidor
 # Borra las capas de imágenes viejas que ya no se usan para liberar espacio
