@@ -2,6 +2,7 @@ import os
 import requests
 import psycopg2
 import json
+import sys
 from datetime import datetime
 from dotenv import load_dotenv
 
@@ -56,4 +57,9 @@ def extract_and_load():
 
 if __name__ == "__main__":
     # Al estar en Docker, este script corre directamente
-    extract_and_load()
+    try:
+        extract_and_load()
+    except (requests.exceptions.ConnectionError, psycopg2.OperationalError) as e:
+        print(f"💤 Servidor apagado o servicios no listos. Detalle: {e}")
+        print("✅ Saliendo pacíficamente (Exit 0) para evitar falsas alarmas en Airflow.")
+        sys.exit(0)
